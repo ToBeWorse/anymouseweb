@@ -1,2 +1,0 @@
-# anymouseweb
-使用SpringBoot建立的一个操作web的模型
