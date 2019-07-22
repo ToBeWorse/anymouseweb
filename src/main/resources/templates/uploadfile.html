@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<body>
+<h1>Spring Boot file upload example</h1>
+<h2 th:text="${user_name}"></h2>
+<form method="POST" action="/fileupload/uploadfileStream" enctype="multipart/form-data">
+    <input type="file" name="file"/>
+    </br>
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>

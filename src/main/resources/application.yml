@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+
+spring:
+
+    datasource:
+        name: anymouse
+        url: jdbc:mysql://192.168.15.129:3306/AnymouseDB?characterEncoding=utf-8
+        username: anymouse
+        password: anymouse
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    thymeleaf:
+            prefix: classpath:/templates/
+            suffix: .html
+            cache: false
+
+
+mybatis:
+  mapper-locations: classpath:Mapper/*.xml
+  type-aliases-package: com.example.anymouseweb.Entity
+
+#会覆盖原来的设置
+#logging:
+  #pattern:
+    #console: "%d - %msg%n"
+    #file: D:\centos\project\src\main\resources\log.txt
+    #level:  debug
+
+
+
+
+
+
+

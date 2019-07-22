@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.anymouseweb.Mapper.FlexValueMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.anymouseweb.Entity.FlexValueEntity">
+        <result column="Flex_Id" jdbcType="INTEGER" property="Flex_Id" />
+        <result column="Flex_Name" jdbcType="VARCHAR" property="Flex_Name" />
+        <result column="Flex_Value" jdbcType="VARCHAR" property="Flex_Value" />
+        <result column="Flex_Address" jdbcType="VARCHAR" property="Flex_Address" />
+    </resultMap>
+    <select id="getProfileByName" parameterType="java.lang.String" resultType="com.example.anymouseweb.Entity.FlexValueEntity">
+      SELECT * FROM `FND_FLEX_VALUE` A where A.Flex_Name = #{flex_name}
+    </select>
+    <select id="getProfileById" parameterType="java.lang.Integer" resultType="com.example.anymouseweb.Entity.FlexValueEntity">
+      SELECT * FROM `FND_FLEX_VALUE` A where A.Flex_id = #{flex_id}
+    </select>
+</mapper>
