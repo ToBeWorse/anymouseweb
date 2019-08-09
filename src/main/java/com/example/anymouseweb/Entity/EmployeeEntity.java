@@ -1,6 +1,7 @@
 package com.example.anymouseweb.Entity;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -11,9 +12,24 @@ public class EmployeeEntity {
     private String employee_number;
     private String full_name;
     private String email_address;
-    private java.sql.Timestamp birthday;
-    private java.sql.Timestamp create_date;
-    private java.sql.Timestamp last_update_date;
+    private byte[] password;
+    private String card_id;
+
+    public EmployeeEntity(String employee_number, String full_name, String email_address, byte[] password, String card_id) {
+        this.employee_number = employee_number;
+        this.full_name = full_name;
+        this.email_address = email_address;
+        this.password = password;
+        this.card_id = card_id;
+    }
+    public EmployeeEntity() {
+
+    }
+
+
+    public EmployeeEntity(int employee_id) {
+        this.employee_id = employee_id;
+    }
 
     public int getEmployee_id() {
         return employee_id;
@@ -47,28 +63,20 @@ public class EmployeeEntity {
         this.email_address = email_address;
     }
 
-    public Timestamp getBirthday() {
-        return birthday;
+    public byte[] getPassword() {
+        return password;
     }
 
-    public void setBirthday(Timestamp birthday) {
-        this.birthday = birthday;
+    public void setPassword(byte[] password) {
+        this.password = password;
     }
 
-    public Timestamp getCreate_date() {
-        return create_date;
+    public String getCard_id() {
+        return card_id;
     }
 
-    public void setCreate_date(Timestamp create_date) {
-        this.create_date = create_date;
-    }
-
-    public Timestamp getLast_update_date() {
-        return last_update_date;
-    }
-
-    public void setLast_update_date(Timestamp last_update_date) {
-        this.last_update_date = last_update_date;
+    public void setCard_id(String card_id) {
+        this.card_id = card_id;
     }
 
     @Override
@@ -80,15 +88,16 @@ public class EmployeeEntity {
                 Objects.equals(employee_number, that.employee_number) &&
                 Objects.equals(full_name, that.full_name) &&
                 Objects.equals(email_address, that.email_address) &&
-                Objects.equals(birthday, that.birthday) &&
-                Objects.equals(create_date, that.create_date) &&
-                Objects.equals(last_update_date, that.last_update_date);
+                Arrays.equals(password, that.password) &&
+                Objects.equals(card_id, that.card_id);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(employee_id, employee_number, full_name, email_address, birthday, create_date, last_update_date);
+        int result = Objects.hash(employee_id, employee_number, full_name, email_address, card_id);
+        result = 31 * result + Arrays.hashCode(password);
+        return result;
     }
 
     @Override
@@ -98,9 +107,8 @@ public class EmployeeEntity {
                 ", employee_number='" + employee_number + '\'' +
                 ", full_name='" + full_name + '\'' +
                 ", email_address='" + email_address + '\'' +
-                ", birthday=" + birthday +
-                ", create_date=" + create_date +
-                ", last_update_date=" + last_update_date +
+                ", password=" + Arrays.toString(password) +
+                ", card_id='" + card_id + '\'' +
                 '}';
     }
 }

@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 import java.io.File;
+import java.util.Map;
 import java.util.UUID;
 
 @Controller
@@ -25,6 +26,12 @@ public class UploadFileController {
     private UploadFileService uploadFileService;
     @Autowired
     private FlexService flexService;
+
+    @RequestMapping("upload.thy")
+    public String fileupload(Map<String,Object> map){
+        map.put("user_name","User");
+        return "uploadfile";
+    }
 
     @RequestMapping("getUploadFileAddressByFileName/{file_name}")
     @ResponseBody
@@ -96,7 +103,8 @@ public class UploadFileController {
             logger.error("ERROR");
         }
     }
-//上传文件流
+
+    //上传文件流
     @RequestMapping("uploadfileStream")
     @ResponseBody
     public String uploadFileStream(@RequestParam("file") MultipartFile file) {
