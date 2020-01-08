@@ -1,3 +1,5 @@
+git config --global user.email "117056951@qq.com"
+git config --global user.name "Worse_Hand"
 anymouseweb
   使用SpringBoot建立的一个操作web的模型
   此项目使用Thymeleaf，前后端没有分离，不适于当前的项目，后期应进行改进。
@@ -47,6 +49,10 @@ anymouseweb
 	4.代码规范化，代码注释应当简介明了，重要问题以及段落应当使用段落注释。
 新增功能：
     1.增加主页登陆以及注册用户功能。2019/8/9。
+    2.增加Redis缓存机制。
+
+
+
 
 
    
